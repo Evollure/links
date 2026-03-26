@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evollure Group — Links</title>
+<link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--void:#050505;--c950:#0A0A0A;--c900:#111;--c800:#1A1A1A;--c700:#242424;--c600:#333;--c500:#555;--c400:#777;--c300:#999;--c200:#BBB;--c100:#DDD;
+--ember:#E8570F;--ember-hover:#F07A3E;--ember-dim:rgba(232,87,15,.08);--ember-glow:rgba(232,87,15,.06);
+--font:'PP Neue Montreal',sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--void);color:#fff;font-family:var(--font);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;position:relative;overflow-x:hidden}
+
+/* Grid texture */
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;z-index:0;opacity:.025;pointer-events:none;
+background-image:linear-gradient(rgba(232,87,15,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(232,87,15,.3) 1px,transparent 1px);background-size:60px 60px}
+
+/* Noise */
+body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;z-index:0;opacity:.03;pointer-events:none;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+.page{position:relative;z-index:1;width:100%;max-width:480px;padding:48px 24px 40px;display:flex;flex-direction:column;align-items:center}
+
+/* Glow behind logo area */
+.glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--ember-dim) 0%,transparent 60%);z-index:-1;pointer-events:none}
+
+/* Corner marks */
+.corner{position:fixed;width:20px;height:20px;z-index:2;pointer-events:none}
+.corner.tl{top:14px;left:14px;border-top:1.5px solid rgba(232,87,15,.12);border-left:1.5px solid rgba(232,87,15,.12)}
+.corner.tr{top:14px;right:14px;border-top:1.5px solid rgba(232,87,15,.12);border-right:1.5px solid rgba(232,87,15,.12)}
+.corner.bl{bottom:14px;left:14px;border-bottom:1.5px solid rgba(232,87,15,.12);border-left:1.5px solid rgba(232,87,15,.12)}
+.corner.br{bottom:14px;right:14px;border-bottom:1.5px solid rgba(232,87,15,.12);border-right:1.5px solid rgba(232,87,15,.12)}
+
+/* Logo section */
+.logo-area{display:flex;flex-direction:column;align-items:center;margin-bottom:36px}
+.logo-orbital{margin-bottom:16px;opacity:.9}
+.wordmark{font-size:28px;font-weight:400;letter-spacing:-0.5px;color:#fff;margin-bottom:2px}
+.wordmark-sub{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:12px}
+.tagline{font-size:13px;color:var(--c300);text-align:center;line-height:1.6;max-width:300px}
+
+/* Divider */
+.divider{width:60px;height:1.5px;background:var(--ember);opacity:.3;margin:0 auto 32px}
+
+/* Links */
+.links{width:100%;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+
+.link-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--c950);border:1px solid var(--c800);text-decoration:none;color:#fff;transition:border-color .25s ease,transform .25s ease}
+.link-item:hover{border-color:var(--ember);transform:translateY(-2px)}
+.link-item .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--ember-dim);border:1px solid rgba(232,87,15,.12);flex-shrink:0}
+.link-item .info{flex:1}
+.link-item .info .label{font-family:var(--mono);font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--c400);margin-bottom:3px}
+.link-item .info .title{font-size:14px;font-weight:700;letter-spacing:-.2px;color:#fff}
+.link-item .arrow{font-family:var(--mono);font-size:12px;color:var(--c500);transition:color .25s ease}
+.link-item:hover .arrow{color:var(--ember)}
+
+/* Soon / disabled link */
+.link-soon{opacity:.45;pointer-events:none;cursor:default}
+.link-soon .icon{background:rgba(255,255,255,.03);border-color:var(--c700)}
+.link-soon .icon svg{color:var(--c500)}
+.link-soon .info .title{color:var(--c400)}
+.badge-soon{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px;background:rgba(255,255,255,.04);color:var(--c400);white-space:nowrap;font-weight:500}
+
+/* Featured link (Intelligence) */
+.link-featured{background:rgba(232,87,15,.04);border:1px solid rgba(232,87,15,.2);padding:18px}
+.link-featured:hover{border-color:var(--ember);background:rgba(232,87,15,.06)}
+.link-featured .icon{background:var(--ember);border-color:var(--ember)}
+.link-featured .icon svg{stroke:#fff}
+.link-featured .info .label{color:var(--ember)}
+.link-featured .info .desc{font-size:12px;color:var(--c300);line-height:1.5;margin-top:5px}
+
+/* Footer */
+.footer-links{display:flex;gap:16px;margin-bottom:20px}
+.footer-links a{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid var(--c800);background:var(--c950);transition:border-color .25s ease,transform .25s ease}
+.footer-links a:hover{border-color:var(--ember);transform:translateY(-2px)}
+.footer-links a svg{width:16px;height:16px}
+
+.footer-meta{font-family:var(--mono);font-size:7px;letter-spacing:1.5px;color:var(--c500);text-align:center;line-height:2}
+</style>
+</head>
+<body>
+
+<!-- Corner marks -->
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<div class="page">
+
+<!-- Glow -->
+<div class="glow"></div>
+
+<!-- Logo area -->
+<div class="logo-area">
+<div class="logo-orbital">
+<svg width="52" height="52" viewBox="0 0 120 120">
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5"/>
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/>
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/>
+<circle cx="60" cy="60" r="6" fill="#E8570F"/>
+</svg>
+</div>
+<div class="wordmark">Evollure</div>
+<div class="wordmark-sub">Group</div>
+<div class="tagline">AI Sales Agency — Inteligência aplicada a cada etapa da sua operação comercial.</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Links -->
+<div class="links">
+
+<!-- FEATURED: Evollure Intelligence -->
+<a href="#" class="link-item link-featured">
+<div class="icon">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square">
+<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+</svg>
+</div>
+<div class="info">
+<div class="label">Produto sob medida</div>
+<div class="title">Evollure Intelligence</div>
+<div class="desc">5 minutos olhando a ferramenta. 6 horas economizadas. Ranking de vendedores, critérios fracos, coaching cirúrgico — tudo personalizado pro seu negócio. Seu time nunca mais vai vender no escuro.</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<!-- Site Evollure Group -->
+<a href="#" class="link-item">
+<div class="icon">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#E8570F" stroke-width="2" stroke-linecap="square">
+<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+</svg>
+</div>
+<div class="info">
+<div class="label">Site oficial</div>
+<div class="title">Evollure Group</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<!-- YouTube (Em breve) -->
+<div class="link-item link-soon">
+<div class="icon">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+<rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10,8 16,12 10,16"/>
+</svg>
+</div>
+<div class="info">
+<div class="label">Canal</div>
+<div class="title">YouTube</div>
+</div>
+<span class="badge-soon">Em breve</span>
+</div>
+
+</div>
+
+<!-- Social icons -->
+<div class="footer-links">
+<a href="https://instagram.com/evolluregroup" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8570F" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#E8570F" stroke="none"/></svg>
+</a>
+</div>
+
+<!-- Footer meta -->
+<div class="footer-meta">
+@evolluregroup<br>
+All rights reserved · 2026
+</div>
+
+</div>
+
+</body>
+</html>

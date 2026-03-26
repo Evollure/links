@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evollure — Brand Board</title>
+<link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#050505;--c900:#0A0A0A;--c800:#111;--c700:#1A1A1A;--c600:#242424;--c500:#333;--c400:#555;--c300:#777;--c200:#999;--c100:#BBB;--c50:#DDD;
+  --ember:#E8570F;--ember-dim:rgba(232,87,15,.08);
+  --white:#FFF;--frost:#E0E0E0;--success:#22C55E;--danger:#EF4444;
+}
+body{font-family:'PP Neue Montreal',sans-serif;background:var(--void);color:var(--white);line-height:1.6;overflow-x:hidden}
+.mono{font-family:'IBM Plex Mono',monospace}
+.container{max-width:960px;margin:0 auto;padding:48px 32px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--c700),transparent);margin:64px 0}
+
+.header{padding:100px 0 80px;text-align:center;position:relative}
+.header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,var(--ember-dim) 0%,transparent 70%);pointer-events:none}
+.h-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:80px;padding:0 20px}
+.h-top-left,.h-top-right{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--c400)}
+.h-top-right{text-align:right}
+.h-name{font-size:56px;font-weight:400;letter-spacing:-1px;margin-top:16px}
+.h-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--c300);margin-top:8px}
+
+.sec-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+.sec-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--ember);text-transform:uppercase}
+.sec-line{flex:1;height:1px;background:var(--c700)}
+.sec-title{font-size:28px;font-weight:800;letter-spacing:-.8px;margin-bottom:8px}
+.sec-desc{font-size:14px;color:var(--c300);max-width:520px;line-height:1.9;font-weight:400}
+
+.name-display{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:32px 0;background:var(--c700);overflow:hidden}
+.name-cell{height:120px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:400;letter-spacing:-.5px}
+.name-cell.on-dark{background:var(--void);color:var(--white)}
+.name-cell.on-white{background:var(--white);color:var(--void)}
+.name-cell.on-ember{background:var(--ember);color:var(--white)}
+
+.insta-row{display:flex;gap:16px;align-items:center;margin-top:32px}
+.insta-circ{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;letter-spacing:-.5px}
+.insta-circ.i1{background:var(--void);border:1px solid var(--c600);color:var(--white)}
+.insta-circ.i2{background:var(--ember);color:var(--white)}
+.insta-circ.i3{background:var(--c800);border:1px solid var(--c600);color:var(--ember)}
+
+.palette-row{display:flex;gap:1px;margin:24px 0;background:var(--c700);overflow:hidden}
+.palette-swatch{flex:1;height:72px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:8px;transition:flex .3s}
+.palette-swatch:hover{flex:1.5}
+.palette-swatch span{opacity:.5;transition:opacity .2s}
+.palette-swatch:hover span{opacity:1}
+.palette-swatch.lt span{color:var(--void)}
+.palette-swatch.dk span{color:var(--white)}
+
+.ember-accent{display:flex;align-items:center;gap:24px;margin:24px 0;padding:24px;border:1px solid var(--c700)}
+.ember-circle{width:64px;height:64px;border-radius:50%;background:var(--ember);flex-shrink:0}
+.ember-info{font-size:13px;color:var(--c200);line-height:1.8}
+.ember-info strong{color:var(--ember);font-weight:700}
+
+.type-showcase{margin:28px 0}
+.type-item{padding:28px 0;border-bottom:1px solid var(--c800)}
+.type-item:last-child{border:none}
+.type-meta{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--c400);letter-spacing:1px;margin-bottom:10px;text-transform:uppercase}
+
+.post-mock{background:var(--c900);border:1px solid var(--c700);overflow:hidden;margin:28px 0}
+.post-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--c400);text-transform:uppercase;border-bottom:1px solid var(--c700)}
+.post-body-area{padding:48px 36px;min-height:300px;display:flex;flex-direction:column;justify-content:center;position:relative;background:linear-gradient(180deg,var(--c900) 0%,var(--void) 100%)}
+.post-body-area::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,var(--ember-dim) 0%,transparent 70%);pointer-events:none}
+
+.btn-showcase{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.btn{display:inline-flex;align-items:center;padding:12px 32px;font-family:'PP Neue Montreal',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:all .25s;letter-spacing:-.2px}
+.btn-ember{background:var(--ember);color:var(--white)}
+.btn-ember:hover{background:var(--white);color:var(--void)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid var(--c500)}
+.btn-outline:hover{border-color:var(--ember);color:var(--ember)}
+.btn-white{background:var(--white);color:var(--void)}
+.btn-white:hover{background:var(--ember);color:var(--white)}
+
+.voice-pair{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--c700);margin:24px 0;overflow:hidden}
+.voice-card{padding:24px;background:var(--c900)}
+.voice-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.voice-label.do{color:var(--ember)}
+.voice-label.dont{color:var(--c400)}
+.voice-text{font-size:17px;font-weight:700;line-height:1.5;letter-spacing:-.3px}
+.voice-card.dont-card .voice-text{color:var(--c400);text-decoration:line-through;text-decoration-color:var(--c600);font-weight:400}
+
+.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--c700);margin:24px 0;overflow:hidden}
+.metric{background:var(--c900);padding:20px;text-align:center}
+.metric-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--c400);text-transform:uppercase;margin-bottom:6px}
+.metric-value{font-size:36px;font-weight:800;letter-spacing:-1.5px}
+.metric-value.ember{color:var(--ember)}
+.metric-value.white{color:var(--white)}
+.metric-value.success{color:var(--success)}
+
+.prod-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--c700);margin:24px 0;overflow:hidden}
+.prod-cell{background:var(--c900);padding:28px}
+.prod-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.prod-tag.active{color:var(--ember)}
+.prod-tag.soon{color:var(--c400)}
+.prod-title{font-size:20px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.prod-desc{font-size:12px;color:var(--c300);line-height:1.8}
+
+.rules-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--c700);margin:24px 0;overflow:hidden}
+.rule-cell{background:var(--c900);padding:20px}
+.rule-title{font-size:14px;font-weight:800;margin-bottom:4px;letter-spacing:-.2px}
+.rule-desc{font-size:11px;color:var(--c400);line-height:1.7}
+
+.badge-row{display:flex;gap:8px;flex-wrap:wrap}
+.b{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px;font-weight:500}
+.b-ember{background:rgba(232,87,15,.1);color:#F07A3E}
+.b-white{background:rgba(255,255,255,.06);color:var(--c100)}
+.b-success{background:rgba(34,197,94,.1);color:var(--success)}
+.b-danger{background:rgba(239,68,68,.1);color:var(--danger)}
+
+.footer{text-align:center;padding:64px 0 32px}
+.footer-name{font-size:20px;font-weight:400;letter-spacing:-.5px;color:var(--c200)}
+.footer-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--c500);margin-top:4px}
+
+@media(max-width:768px){
+.name-display{grid-template-columns:1fr}
+.voice-pair,.prod-row,.rules-row{grid-template-columns:1fr}
+.metrics-row{grid-template-columns:1fr 1fr}
+.h-name{font-size:38px}
+.insta-row{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<div class="h-top"><div class="h-top-left">2026 ©</div><div class="h-top-right">Evollure<br>IA aplicada a negócios</div></div>
+<svg width="56" height="56" viewBox="0 0 120 120" style="display:block;margin:0 auto">
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3.5"/>
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3" transform="rotate(60 60 60)" opacity=".6"/>
+<ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="2.5" transform="rotate(120 60 60)" opacity=".3"/>
+<circle cx="60" cy="60" r="5" fill="#E8570F"/>
+</svg>
+<div class="h-name">Evollure</div>
+<div class="h-sub">IA aplicada a negócios</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 01 LOGO -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">01 — Logo</span><span class="sec-line"></span></div>
+<div class="sec-title">Orbital Knot</div>
+<div class="sec-desc">Três órbitas com opacidade decrescente convergindo num núcleo sólido. Conexão, inteligência, resultado. O ponto central é a Evollure.</div>
+
+<div class="name-display" style="grid-template-columns:repeat(5,1fr)">
+<div class="name-cell on-dark" style="font-size:inherit"><svg width="44" height="44" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#E8570F"/></svg></div>
+<div class="name-cell" style="background:var(--c800);color:var(--white);font-size:inherit"><svg width="44" height="44" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#E8570F"/></svg></div>
+<div class="name-cell on-white" style="font-size:inherit"><svg width="44" height="44" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#050505"/></svg></div>
+<div class="name-cell on-ember" style="font-size:inherit"><svg width="44" height="44" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#FFF"/></svg></div>
+<div class="name-cell" style="background:var(--c700);font-size:inherit"><svg width="44" height="44" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#E8570F"/></svg></div>
+</div>
+
+<div style="display:flex;gap:32px;margin:32px 0;align-items:center;flex-wrap:wrap">
+<div style="display:flex;align-items:center;gap:12px;padding:14px 24px;background:var(--void);border:1px solid var(--c700)"><svg width="28" height="28" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="6" fill="#E8570F"/></svg><span style="font-size:22px;font-weight:400;letter-spacing:-.5px;color:var(--white)">Evollure</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 24px;background:var(--white)"><svg width="28" height="28" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#050505" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="6" fill="#050505"/></svg><span style="font-size:22px;font-weight:400;letter-spacing:-.5px;color:var(--void)">Evollure</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 24px;background:var(--ember)"><svg width="28" height="28" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="6" fill="#FFF"/></svg><span style="font-size:22px;font-weight:400;letter-spacing:-.5px;color:var(--white)">Evollure</span></div>
+</div>
+
+<div class="sec-num" style="margin-bottom:12px;margin-top:32px">Preview Instagram</div>
+<div class="insta-row">
+<div class="insta-circ i1"><svg width="40" height="40" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="7" fill="#E8570F"/></svg></div>
+<div class="insta-circ i2"><svg width="40" height="40" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#FFF" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="7" fill="#FFF"/></svg></div>
+<div class="insta-circ i3"><svg width="40" height="40" viewBox="0 0 120 120"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="7" fill="#E8570F"/></svg></div>
+<div style="margin-left:12px"><div class="mono" style="font-size:10px;color:var(--c400)">@evolluregroup</div><div style="font-size:15px;font-weight:800;margin-top:2px;letter-spacing:-.5px">Evollure</div><div style="font-size:11px;color:var(--c300);margin-top:1px;font-weight:400">IA aplicada a negócios</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 02 PALETA -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">02 — Paleta</span><span class="sec-line"></span></div>
+<div class="sec-title">Carbon + Ember</div>
+<div class="sec-desc">Preto real como fundação. Ember como brasa — aparece só onde algo importa. 90% silêncio, 10% fogo.</div>
+<div class="palette-row">
+<div class="palette-swatch dk" style="background:#050505"><span>Void</span></div>
+<div class="palette-swatch dk" style="background:#0A0A0A"><span>900</span></div>
+<div class="palette-swatch dk" style="background:#111"><span>800</span></div>
+<div class="palette-swatch dk" style="background:#1A1A1A"><span>700</span></div>
+<div class="palette-swatch dk" style="background:#242424"><span>600</span></div>
+<div class="palette-swatch dk" style="background:#333"><span>500</span></div>
+<div class="palette-swatch dk" style="background:#555"><span>400</span></div>
+<div class="palette-swatch lt" style="background:#777"><span>300</span></div>
+<div class="palette-swatch lt" style="background:#999"><span>200</span></div>
+<div class="palette-swatch lt" style="background:#BBB"><span>100</span></div>
+<div class="palette-swatch lt" style="background:#DDD"><span>50</span></div>
+</div>
+<div class="ember-accent"><div class="ember-circle"></div><div class="ember-info"><strong>#E8570F — Ember</strong><br>A única cor quente da marca. CTAs primários, dados críticos, palavras-chave de destaque e itálicos de ênfase. Nunca como fundo de áreas grandes.</div></div>
+<div style="margin-top:16px"><div class="sec-num" style="margin-bottom:8px">Semânticas</div></div>
+<div style="display:flex;gap:1px;background:var(--c700);overflow:hidden">
+<div class="palette-swatch lt" style="background:#22C55E;flex:1"><span>Success</span></div>
+<div class="palette-swatch dk" style="background:#EF4444;flex:1"><span>Danger</span></div>
+<div class="palette-swatch lt" style="background:#4DA3FF;flex:1"><span>Info</span></div>
+<div class="palette-swatch lt" style="background:#FFF;flex:1"><span style="color:#050505">White</span></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 03 TIPOGRAFIA -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">03 — Tipografia</span><span class="sec-line"></span></div>
+<div class="sec-title">PP Neue Montreal + IBM Plex Mono</div>
+<div class="sec-desc">Neue Montreal da Pangram Pangram — a mesma fonte da Academia Lendária. Grotesque versátil com espírito de display font. Bold nos headlines, regular no corpo, itálico ember nos destaques. IBM Plex Mono nos dados e labels.</div>
+<div class="type-showcase">
+<div class="type-item"><div class="type-meta">Hero — Neue Montreal Bold · 32-48px · tracking -1px</div><div style="font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1.2">O Cohort é uma turma<br>que evolui ao <em style="color:var(--ember);font-style:italic">mesmo tempo.</em></div></div>
+<div class="type-item"><div class="type-meta">Section title — Neue Montreal Bold · 24-30px</div><div style="font-size:28px;font-weight:800;letter-spacing:-.8px;line-height:1.3">Seu time faz 200 calls por semana.<br>Você não ouve <em style="color:var(--ember);font-style:italic">nenhuma.</em></div></div>
+<div class="type-item"><div class="type-meta">Body — Neue Montreal Regular · 14-16px</div><div style="font-size:15px;color:var(--c200);line-height:1.8;font-weight:400;max-width:500px">A Evollure aplica inteligência artificial nos pontos que mais impactam a receita do seu negócio. Sem jargão. Sem promessa vazia. Só resultado mensurável.</div></div>
+<div class="type-item"><div class="type-meta">Destaque — Neue Montreal Bold + underline</div><div style="font-size:15px;color:var(--c200);line-height:1.8;font-weight:400">A Evollure atrai os <strong style="color:var(--white);text-decoration:underline;text-decoration-color:var(--c500);font-weight:700">clientes certos</strong> e <strong style="color:var(--white);text-decoration:underline;text-decoration-color:var(--c500);font-weight:700">automatiza processos</strong> para que sua empresa <strong style="color:var(--white);text-decoration:underline;text-decoration-color:var(--c500);font-weight:700">lucre mais</strong> com <strong style="color:var(--white);text-decoration:underline;text-decoration-color:var(--c500);font-weight:700">menos esforço.</strong></div></div>
+<div class="type-item"><div class="type-meta">Labels — IBM Plex Mono · 9px · uppercase</div><div class="mono" style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ember)">Evollure Intelligence &nbsp;·&nbsp; IA para negócios &nbsp;·&nbsp; 2026 ©</div></div>
+<div class="type-item"><div class="type-meta">Números — Neue Montreal Bold · 40-64px · tracking -2px</div><div style="display:flex;gap:48px;align-items:baseline"><div style="font-size:56px;font-weight:800;color:var(--ember);letter-spacing:-2px">73%</div><div style="font-size:56px;font-weight:800;color:var(--white);letter-spacing:-2px">4.2×</div><div style="font-size:56px;font-weight:800;color:var(--frost);letter-spacing:-2px">-38%</div></div></div>
+<div class="type-item"><div class="type-meta">Badges</div><div class="badge-row"><span class="b b-ember">Ativo</span><span class="b b-white">Análise</span><span class="b b-success">Fechado</span><span class="b b-danger">Problema</span></div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 04 POSTS -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">04 — Estilo de post</span><span class="sec-line"></span></div>
+<div class="sec-title">Cinematográfico, direto, pesado</div>
+<div class="sec-desc">Fundo escuro, imagens 3D, tipografia bold com itálico ember. Header com copyright + marca + tag.</div>
+<div class="post-mock">
+<div class="post-header"><span>2026 ©</span><svg width="16" height="16" viewBox="0 0 120 120" style="opacity:.5"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="7" fill="#E8570F"/></svg><span>Evollure · IA</span></div>
+<div class="post-body-area">
+<div style="font-size:32px;font-weight:800;line-height:1.3;letter-spacing:-.8px;position:relative;z-index:1">A evolução não pede licença.<br>Ela <em style="color:var(--ember);font-style:italic">acontece</em> — e quem não<br>acompanha, fica pra trás.</div>
+<div style="font-size:14px;color:var(--c300);line-height:1.8;margin-top:16px;position:relative;z-index:1;font-weight:400">Enquanto muitos ainda tentam entender o presente, os protagonistas já estão moldando o futuro.</div>
+<div style="margin-top:20px;position:relative;z-index:1"><span class="mono" style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--c300);border:1px solid var(--c600);padding:6px 16px">Leia a legenda</span></div>
+</div>
+</div>
+<div class="post-mock" style="margin-top:16px">
+<div class="post-header"><span>2026 ©</span><svg width="16" height="16" viewBox="0 0 120 120" style="opacity:.5"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="5" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="7" fill="#E8570F"/></svg><span>Evollure · IA</span></div>
+<div class="post-body-area" style="align-items:center;text-align:center">
+<div style="position:relative;z-index:1">
+<div style="font-size:72px;font-weight:800;color:var(--ember);letter-spacing:-3px;line-height:1">73%</div>
+<div style="font-size:20px;font-weight:800;margin-top:14px;letter-spacing:-.5px;line-height:1.3">dos vendedores não fazem<br>a pergunta que mais impacta<br>o <em style="color:var(--ember);font-style:italic">fechamento.</em></div>
+<div style="font-size:13px;color:var(--c300);margin-top:16px;font-weight:400">Dados de 2.400 calls analisadas pelo Evollure Intelligence.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 05 MÉTRICAS -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">05 — Métricas</span><span class="sec-line"></span></div>
+<div class="metrics-row">
+<div class="metric"><div class="metric-label">Calls</div><div class="metric-value ember">1.247</div></div>
+<div class="metric"><div class="metric-label">Conversão</div><div class="metric-value success">+34%</div></div>
+<div class="metric"><div class="metric-label">Score</div><div class="metric-value white">7.8</div></div>
+<div class="metric"><div class="metric-label">Pipeline</div><div class="metric-value ember">R$840k</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 06 BOTÕES -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">06 — Botões</span><span class="sec-line"></span></div>
+<div class="sec-desc">Cantos retos. Sem border-radius. A marca é afiada.</div>
+<div class="btn-showcase"><button class="btn btn-ember">Agendar Demo</button><button class="btn btn-outline">Saiba mais</button><button class="btn btn-white">Explorar</button></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 07 VOZ -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">07 — Tom de voz</span><span class="sec-line"></span></div>
+<div class="sec-title">Direto. Pesado. Sem enfeite.</div>
+<div class="voice-pair">
+<div class="voice-card"><div class="voice-label do">Fale assim</div><div class="voice-text">O futuro não recompensa quem espera.<br>Ele promove quem se <em style="color:var(--ember)">antecipa.</em></div></div>
+<div class="voice-card dont-card"><div class="voice-label dont">Nunca assim</div><div class="voice-text">Utilizamos inteligência artificial de última geração para otimizar seus processos comerciais.</div></div>
+</div>
+<div class="voice-pair" style="margin-top:1px">
+<div class="voice-card"><div class="voice-label do">Fale assim</div><div class="voice-text">Seu time faz 200 calls por semana.<br>Você não ouve <em style="color:var(--ember)">nenhuma.</em></div></div>
+<div class="voice-card dont-card"><div class="voice-label dont">Nunca assim</div><div class="voice-text">Nossa plataforma oferece dashboards inteligentes e relatórios automatizados.</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 08 PRODUTOS -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">08 — Produtos</span><span class="sec-line"></span></div>
+<div class="prod-row">
+<div class="prod-cell"><div class="prod-tag active">Intelligence</div><div class="prod-title">Análise de calls com IA</div><div class="prod-desc">Grava, transcreve e avalia cada conversa contra critérios personalizados. Mostra onde cada vendedor perde dinheiro.</div></div>
+<div class="prod-cell"><div class="prod-tag soon">Reach</div><div class="prod-title">SDR com IA + CRM</div><div class="prod-desc">IA qualifica leads no WhatsApp, distribui pro vendedor certo e faz follow-up automático.</div></div>
+<div class="prod-cell"><div class="prod-tag soon">Prospect</div><div class="prod-title">Prospecção multicanal</div><div class="prod-desc">Listas enriquecidas, mensagens com IA, disparo em WhatsApp, LinkedIn e email.</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 09 PRINCÍPIOS -->
+<div class="sec">
+<div class="sec-header"><span class="sec-num">09 — Princípios</span><span class="sec-line"></span></div>
+<div class="rules-row">
+<div class="rule-cell"><div class="rule-title">Preto real</div><div class="rule-desc">#050505. Não navy, não grafite. A marca respira no escuro.</div></div>
+<div class="rule-cell"><div class="rule-title">Ember com silêncio</div><div class="rule-desc">Máximo 10%. Só CTAs, dados críticos e itálicos de destaque.</div></div>
+<div class="rule-cell"><div class="rule-title">Peso nos headlines</div><div class="rule-desc">PP Neue Montreal Bold. Títulos pesados, corpo regular. Hierarquia por contraste de peso.</div></div>
+</div>
+<div class="rules-row" style="margin-top:1px">
+<div class="rule-cell"><div class="rule-title">Itálico = destaque</div><div class="rule-desc">Palavras-chave em itálico ember. O único recurso de ênfase nos headlines.</div></div>
+<div class="rule-cell"><div class="rule-title">Espaço é luxo</div><div class="rule-desc">Mais vazio = mais premium. Nunca preencha. Deixe respirar.</div></div>
+<div class="rule-cell"><div class="rule-title">Cantos retos</div><div class="rule-desc">Sem border-radius em botões e frames. A marca é afiada.</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+<div class="footer">
+<svg width="28" height="28" viewBox="0 0 120 120" style="display:block;margin:0 auto 8px"><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="4"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3.5" transform="rotate(60 60 60)" opacity=".6"/><ellipse cx="60" cy="60" rx="42" ry="18" fill="none" stroke="#E8570F" stroke-width="3" transform="rotate(120 60 60)" opacity=".3"/><circle cx="60" cy="60" r="5.5" fill="#E8570F"/></svg>
+<div class="footer-name">Evollure</div>
+<div class="footer-sub">IA aplicada a negócios · 2026</div>
+</div>
+
+</div>
+</body>
+</html>
